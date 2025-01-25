@@ -4,19 +4,24 @@ include <BOSL2/std.scad>
 $fn=50;
 
 H=6;
-IR=4.9;
-difference() {
-    union() {
-        tube(h=H, ir=IR, wall=1.2, center=true)
-            attach(LEFT,LEFT, overlap=0.5) tube(ir=1.4, h=H, wall=0.5) {
-                attach(FRONT,FRONT) left(.5) down(.5) cuboid([1.5, 4, H], spin=-38);
-                attach(BACK,FRONT) right(.5) down(.5) cuboid([1.5, 4, H], spin=38);
-            }
-        translate([IR+3.2,0,0]) cube([6.5,3.6,H], center=true); // supporto per viti
+IR=6;
+R1=1.4;
+R2=6;
+D=8.5;
+diff("remove") {
+    rotate([0,90,0]) prismoid(size1=[H,(R2+1.2)*2], size2=[H,(R1+1.2)*2], h=D) {
+        position(UP) rotate([0,90,0]) cylinder(r=R1+1.2, h=H, center=true);
+        position(DOWN) rotate([0,90,0]) cylinder(r=R2+1.2, h=H, center=true);
+    }
+    translate([-(R2+3.2),0,0]) cube([6.5,3.6,H], center=true); // supporto per viti        
+ 
+    tag("remove") {
+        cylinder(r=R2, h=H+1, center=true);
+        translate([D,0,0]) cylinder(r=R1, h=H+1, center=true);
 
+        translate ([-(R2+3.2),0,0]) rotate ([90,0,0]) cylinder(r=1.65,h=1000, center=true); // foro vite
+        
+        translate([-(R2+3.2),0,0]) cube([10,1,100], center=true); // gioco viti        
     }
-    union() {
-        translate ([IR+3.6,0,0]) rotate ([90,0,0]) cylinder(r=1.65,h=1000, center=true); // foro vite
-        translate ([IR+3.2,0,0]) cube([10,1,200], center=true); // gioco dimensione foro centrale       
-    }
+
 }
