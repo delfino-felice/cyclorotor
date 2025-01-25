@@ -9,3 +9,4 @@ include <ruota piccola.scad>
 include <supporto motore.scad>
 include <wing.scad>
 
+ 

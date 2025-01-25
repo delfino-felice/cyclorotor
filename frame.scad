@@ -1,6 +1,6 @@
 include <BOSL2/std.scad>
 
-include <ruota grande.scad>
+include <STL/ruota grande.scad>
 
 $fn=100;
 l1=7;
