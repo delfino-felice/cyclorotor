@@ -27,7 +27,7 @@ motor_shaft_diameter = 5.2; // (in mm)
 toothed_part_length = 7; // [3:30] (in mm)
 base_height = 9; // [0:30] (in mm, 6 is typical)
 base_diameter = 17.4;   // [10:50] (in mm)
-base_hole_diameter = 7.7; 
+base_hole_diameter = 7.2; 
 // ---------------------------
 // Idler & retainer parameters
 // ---------------------------
@@ -55,7 +55,7 @@ flange_option = 1;
 flange_screw_profile = 5; // [0:M1, 1:M1.6, 2:M2, 3:M2.5, 4:M3, 5:M4, 6:M5, 7:M6]
 flange_screws_disposition = 0; // [0:None, 1:1 screw, 2:2 screws at 180deg, 3:3 screws at 120deg, 4:4 screws at 90deg]
 flange_screwoffset_radius = 26/2;
-flange_diam = 10; // Set to zero to disable the flange to be sunk in the idler
+flange_diam = 12; // Set to zero to disable the flange to be sunk in the idler
 flange_thickness = 3.8; // Set to zero to disable the flange to be sunk in the idler
 flange_use_tap = 0; // Diameter is smaller when used for tapping, 0 to larger hole for easy fit
 
@@ -227,7 +227,7 @@ module pulley( belt_type , pulley_OD , tooth_depth , tooth_width ){
     //hole for motor shaft
     translate([0,0,-1]){
       cylinder(r=motor_shaft/2,h=base_height + idler_height + toothed_part_length + retainer_height + 2,$fn=motor_shaft*20);
-      cylinder(r=base_hole_diameter/2, h=base_height+2, $fn=motor_shaft*20);
+      cylinder(r1=base_hole_diameter/2, r2=motor_shaft_diameter/2, h=base_height+2, $fn=motor_shaft*20);
     }
           
     //captive nut and grub screw holes
