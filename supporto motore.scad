@@ -1,6 +1,7 @@
 include <BOSL2/std.scad>
 
-
+// supporto motore
+// stampare con 3 o più pareti e infill alto
 $fn=100;
 l=32.5;
 h=4;
