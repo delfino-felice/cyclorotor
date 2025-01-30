@@ -1,11 +1,11 @@
 include <BOSL2/std.scad>
 
-include <STL/ruota grande.scad>
+include <ruota grande.scad>
 
 $fn=100;
 l1=7;
 l2=4;
-w=15;
+w=20;
 h=6;
 
 module prism(l1,l2, w, h){
@@ -43,10 +43,10 @@ module oggetto() {
             translate([0,0,-2.5])  cylinder(r=14.1, h=8, center=true);
             cylinder(r=9, h=100, center=true);
             // fori viti ingranaggio
-            translate([or-7,0,0]) cylinder(r=1.4, h=10, center=true);
-            translate([-(or-7),0,0]) cylinder(r=1.4, h=10, center=true);
-            translate([0,or-7,0]) cylinder(r=1.4, h=10, center=true);
-            translate([0,-(or-7),0]) cylinder(r=1.4, h=10, center=true);
+            translate([or-8,0,0]) cylinder(r=1.4, h=10, center=true);
+            translate([-(or-8),0,0]) cylinder(r=1.4, h=10, center=true);
+            translate([0,or-8,0]) cylinder(r=1.4, h=10, center=true);
+            translate([0,-(or-8),0]) cylinder(r=1.4, h=10, center=true);
         }    
     }
 }

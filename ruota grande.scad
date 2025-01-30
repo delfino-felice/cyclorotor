@@ -32,16 +32,16 @@ module oggetto() {
     // attacchi viti
     difference() {
         union() {
-            translate([or-6,0,h/2+0.5]) rotate([0,0,0]) cuboid([7,5,3], rounding=2.2,edges=[BACK+RIGHT,BACK+LEFT,FWD+RIGHT,FWD+LEFT]);
-            translate([-(or-6),0,h/2+0.5]) rotate([0,0,0]) cuboid([7,5,3], rounding=2.2,edges=[BACK+RIGHT,BACK+LEFT,FWD+RIGHT,FWD+LEFT]);
-            translate([0,or-6,h/2+0.5]) rotate([0,0,90]) cuboid([7,5,3], rounding=2.2,edges=[BACK+RIGHT,BACK+LEFT,FWD+RIGHT,FWD+LEFT]);
-            translate([0,-(or-6),h/2+0.5]) rotate([0,0,90]) cuboid([7,5,3], rounding=2.2,edges=[BACK+RIGHT,BACK+LEFT,FWD+RIGHT,FWD+LEFT]);
+            translate([or-7,0,h/2+0.5]) rotate([0,0,0]) cuboid([9,7,3], rounding=2.2,edges=[BACK+RIGHT,BACK+LEFT,FWD+RIGHT,FWD+LEFT]);
+            translate([-(or-7),0,h/2+0.5]) rotate([0,0,0]) cuboid([9,7,3], rounding=2.2,edges=[BACK+RIGHT,BACK+LEFT,FWD+RIGHT,FWD+LEFT]);
+            translate([0,or-7,h/2+0.5]) rotate([0,0,90]) cuboid([9,7,3], rounding=2.2,edges=[BACK+RIGHT,BACK+LEFT,FWD+RIGHT,FWD+LEFT]);
+            translate([0,-(or-7),h/2+0.5]) rotate([0,0,90]) cuboid([9,5,3], rounding=2.2,edges=[BACK+RIGHT,BACK+LEFT,FWD+RIGHT,FWD+LEFT]);
         }
         union() {
-            translate([or-7,0,0]) cylinder(r=1.4, h=100, center=true);
-            translate([-(or-7),0,0]) cylinder(r=1.4, h=100, center=true);
-            translate([0,or-7,0]) cylinder(r=1.4, h=100, center=true);
-            translate([0,-(or-7),0]) cylinder(r=1.4, h=100, center=true);
+            translate([or-8,0,0]) cylinder(r=1.4, h=100, center=true);
+            translate([-(or-8),0,0]) cylinder(r=1.4, h=100, center=true);
+            translate([0,or-8,0]) cylinder(r=1.4, h=100, center=true);
+            translate([0,-(or-8),0]) cylinder(r=1.4, h=100, center=true);
         }
     }
 }
