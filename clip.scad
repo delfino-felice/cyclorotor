@@ -3,7 +3,7 @@ include <BOSL2/std.scad>
 $fn=100;
 
 H=6;
-IR=6;
+IR=6.1;
 difference() {
     union() {
         tube(h=H, ir=IR, wall=1.2, center=true); // tubo centrale

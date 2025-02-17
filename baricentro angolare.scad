@@ -5,7 +5,7 @@ $fn=50;
 
 H=6;
 R1=1.4;
-R2=6;
+R2=6.1;
 D=8.5;
 diff("remove") {
     rotate([0,90,0]) prismoid(size1=[H,(R2+1.2)*2], size2=[H,(R1+1.2)*2], h=D) { // interspazio
