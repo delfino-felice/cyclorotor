@@ -1,1 +1,0 @@
-NACA Airfoils - 4 digit fully parametric OpenSCAD library  by Parkinbot on Thingiverse: https://www.thingiverse.com/thing:898554
