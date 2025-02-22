@@ -1,3 +1,6 @@
+include <libraries\parametricPulley.scad>
+cylinder(r1=base_hole_diameter/2, r2=motor_shaft_diameter/2, h=base_height+2, $fn=motor_shaft*20);
+9
 // Parametric Pulley with multiple belt profiles
 // by droftarts January 2012
 // updated and changed by Oscar January 2018 (https://www.thingiverse.com/0scar/about)
