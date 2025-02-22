@@ -1,5 +1,5 @@
-use <NACA/ShortCuts.scad>
-use <NACA/Naca4.scad>
+use <libraries/NACA/ShortCuts.scad>
+use <libraries/NACA/Naca4.scad>
 
 $fn=50;
 rotate([90, 0, 0]) {

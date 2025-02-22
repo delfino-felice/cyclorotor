@@ -1,4 +1,4 @@
-include <BOSL2/std.scad>
+include <libraries/BOSL2/std.scad>
 
 $fn=50;
 difference("remove") {

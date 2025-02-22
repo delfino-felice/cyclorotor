@@ -1,4 +1,4 @@
-include <BOSL2/std.scad>
+include <libraries/BOSL2/std.scad>
 
 // supporto motore
 // stampare con 3 o più pareti e infill alto

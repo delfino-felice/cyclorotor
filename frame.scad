@@ -1,4 +1,4 @@
-include <BOSL2/std.scad>
+include <libraries/BOSL2/std.scad>
 
 include <ruota grande.scad>
 
