@@ -21,7 +21,6 @@
 // ------------------------
 // Idler profile parameters
 // ------------------------
-module gear(number_of_teeth, profile, motor_shaft_diameter, belt_retainer, retainer_height_p, belt_idler, idler_height_p) {
 number_of_teeth = 20; // [10:100]
 profile = 12; // [1:MXL, 2:40DP, 3:XL, 4:H, 5:T2.5, 6:T5, 7:T10, 8:AT5, 9:HTD_3mm, 10:HTD_5mm, 11:HTD_8mm, 12:GT2_2mm, 13:GT2_3mm, 14:GT2_5mm]
 motor_shaft_diameter = 5.2; // (in mm)
@@ -52,7 +51,7 @@ nut_shaft_distance = 1.2;
 idler_bolt_option = 0; // [0:none, 1:M3, 2:M4, 3:M5, 4:M6, 5:M8, 6:M10, 7:M12, 8:custom] for custom: make changes below!
 
 // Optional metal flange attachment (0 is inactive)
-flange_option = 1;
+flange_option = 0;
 flange_screw_profile = 5; // [0:M1, 1:M1.6, 2:M2, 3:M2.5, 4:M3, 5:M4, 6:M5, 7:M6]
 flange_screws_disposition = 0; // [0:None, 1:1 screw, 2:2 screws at 180deg, 3:3 screws at 120deg, 4:4 screws at 90deg]
 flange_screwoffset_radius = 26/2;
@@ -76,6 +75,9 @@ additional_tooth_width = 0.2; //mm
 // following constant. However, this will cause the shape of the
 // tooth to change.
 additional_tooth_depth = 0; //mm
+
+
+module gear(number_of_teeth, profile, motor_shaft_diameter, belt_retainer, retainer_height_p, belt_idler, idler_height_p,base_height,base_diameter,flange_option,flange_diam,flange_thickness) {
 
 // ------------------------------------
 // Calculated parameters (do not alter)
