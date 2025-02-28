@@ -17,7 +17,7 @@ diff("remove") {
                 attach(BOT,TOP,inside=true) cuboid([30,10,1.5], $tag="remove"); // spazio albero motore
         attach(LEFT,RIGHT, align=BOT, overlap=1.2) cuboid([l+40, 3.8, 10]); // rinforzo verticale
     }
-    translate([IR+3.2,0,0]) cube([6.5,5.4,H], center=true); // supporto per viti        
+    translate([IR+3.2,0,0]) cube([6.5,7,H], center=true); // supporto per viti        
 
 tag("remove") {
     translate ([IR+3.6,0,2.7]) rotate ([90,0,0]) cylinder(r=1.65,h=1000, center=true); // foro vite

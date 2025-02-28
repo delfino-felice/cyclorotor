@@ -12,7 +12,7 @@ diff("remove") {
         position(UP) rotate([0,90,0]) cylinder(r=R1+1.2, h=H, center=true); // cilindro maggiore
         position(DOWN) rotate([0,90,0]) cylinder(r=R2+1.2, h=H, center=true); // cilindro minore
     }
-    translate([-(R2+3.2),0,0]) cube([6.5,5.4,H], center=true); // supporto per viti        
+    translate([-(R2+3.2),0,0]) cube([6.5,7,H], center=true); // supporto per viti        
  
     tag("remove") {
         cylinder(r=R2, h=H+1, center=true); // foro maggiore

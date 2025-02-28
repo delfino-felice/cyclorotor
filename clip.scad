@@ -7,7 +7,7 @@ IR=6.1;
 difference() {
     union() {
         tube(h=H, ir=IR, wall=1.2, center=true); // tubo centrale
-        translate([IR+3.2,0,0]) cube([6.5,5.4,H], center=true); // supporto per viti
+        translate([IR+3.2,0,0]) cube([6.5,7,H], center=true); // supporto per viti
 
     }
     union() {
