@@ -3,7 +3,7 @@ include <libraries/BOSL2/std.scad>
 // supporto motore
 // stampare con 3 o più pareti e infill alto
 $fn=100;
-l=32.5;
+l=37;
 h=4;
 
 H=12;
@@ -23,8 +23,8 @@ tag("remove") {
     translate ([IR+3.6,0,2.7]) rotate ([90,0,0]) cylinder(r=1.65,h=1000, center=true); // foro vite
     translate ([IR+3.6,0,-2.7]) rotate ([90,0,0]) cylinder(r=1.65,h=1000, center=true); // foro vite
     translate ([IR+3.2,0,0]) cube([10,3,200], center=true); // gioco dimensione foro centrale       
-    translate ([-l-22.5-IR,6.4,-4]) scanalatura(32); // scanalatura viti motore
-    translate ([-l-22.5-IR,-6.4,-4]) scanalatura(32); // scanalatura viti motore
+    translate ([-l-22.5-IR,6,-4]) scanalatura(32); // scanalatura viti motore
+    translate ([-l-22.5-IR,-6,-4]) scanalatura(32); // scanalatura viti motore
 }
 }
 module scanalatura (L) {
