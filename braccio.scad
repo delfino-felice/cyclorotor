@@ -1,10 +1,14 @@
 include <libraries/BOSL2/std.scad>
 
+H=14; //altezza cilindro 
+
 $fn=50;
-difference("remove") {
-    cuboid([68,8,2], rounding=1.5,edges=[BACK+RIGHT,BACK+LEFT,FWD+RIGHT,FWD+LEFT]);
-    tag("remove") {
-        translate([30,0,0]) cylinder(r=1.53, h=10, center=true); 
-        translate([-30,0,0]) cylinder(r=1.53, h=10, center=true); 
-    }
+diff("remove") {
+    cuboid([77,8,1], anchor=BOT, rounding=1.5,edges=[BACK+RIGHT,BACK+LEFT,FWD+RIGHT,FWD+LEFT]);
+
+    translate([35,0,0]) cylinder(r=1.9, h=H, anchor=BOT); 
+ 
+    translate([35,0,0]) cylinder(r=1.49, h=100, $tag="remove", center=true); 
+    translate([-35,0,0]) cylinder(r=1.49, h=100, $tag="remove", center=true); 
+    
 }
