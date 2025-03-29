@@ -8,7 +8,7 @@ diff("remove") {
 
     translate([35,0,0]) cylinder(r=2.4, h=H, anchor=BOT); 
  
-    translate([35,0,0]) cylinder(r=1.51, h=100, $tag="remove", center=true); 
+    translate([35,0,0]) cylinder(r=1.53, h=100, $tag="remove", center=true); 
     translate([-35,0,0]) cylinder(r=1.51, h=100, $tag="remove", center=true); 
     
 }
