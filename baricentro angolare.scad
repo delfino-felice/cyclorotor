@@ -15,7 +15,8 @@ diff("remove") {
             attach(UP,BOT, inside=true) cylinder(r=R2, h=H-0.5, $tag="remove"); // foro maggiore con bordo
     }
     translate([-(R2+3.2),0,0]) cube([6,7,H], center=true); // supporto per viti        
- 
+    translate([-R2-0.5,0,-H/2]) cube([2,5,H]); // blocco bullone        
+
     tag("remove") {
         cylinder(r=R2-0.7, h=H+1, center=true); // foro maggiore
 
