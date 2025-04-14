@@ -3,10 +3,17 @@ include <libraries/BOSL2/gears.scad>
 
 $fn=100;
 
-
+module servo_gear() {
+union() 
+import("STL/11_Gripper_gear_v4.stl");
+spur_gear(
+    circ_pitch=3, teeth=15, thickness=10, shaft_diam=5,
+    helical=-30, herringbone=true, slices=5, anchor=BOT
+);
+}
 
 module motor_mount () {
-legth=55;
+legth=50;
 
 diff("remove") {
 zrot(45) {
@@ -19,25 +26,38 @@ tag("remove") {
     right(9.5) cylinder(r=1.6, h=2, anchor=BOT) attach(UP,BOT) cylinder(r=3, h=10);
     cylinder(r=5.1, h=100, center=true);
 }}
-left(20) cylinder(r=1.4, h=10,anchor=BOT, $tag="remove");
-left(36) cylinder(r=1.4, h=10,anchor=BOT, $tag="remove");
+left(19) cylinder(r=1.4, h=10,anchor=BOT, $tag="remove");
+left(47) cylinder(r=1.4, h=10,anchor=BOT, $tag="remove");
 left(64) cylinder(r=1.4, h=10,anchor=BOT, $tag="remove");
 }}
 
 module giunto() {
-thickness=8;
+thickness=5;
 ir=16.05;
 diff("remove") {
 tube(ir=ir, wall=thickness, h=20, orient=FWD) {
     attach(UP, BOT) cylinder(r=ir+thickness, h=10, orient=FWD, $tag="bau") {
         cyl(r=ir, h=10, $tag="remove");
-        position(UP) tube(ir=ir-4, or=ir+thickness, h=1, anchor=BOT, $tag="keep");
+        attach(UP,UP, inside=true) tube(ir=ir-4, or=ir+thickness, h=1, anchor=BOT, $tag="keep");
+        attach([1,0.5,0], FRONT, overlap=2) cube([33,15,10], $tag="bau") {
+            attach(BACK,FRONT,inside=true) cube([22.8,12.2,10], $tag="remove") {
+                position(LEFT) left(0) down(7) xrot(180) servo_gear();
+                attach(UP,UP, align=LEFT, inside=true) right(3.5) cylinder(r=0.9, h=10, $tag="remove");                      
+                attach(UP,UP, align=RIGHT, inside=true) left(3.5) cylinder(r=0.9, h=10, $tag="remove");
+            };
+        };
+        attach([-1,0.5,0], FRONT, overlap=2) cube([33,15,10], $tag="bau") {
+            attach(BACK,FRONT,inside=true) cube([22.8,12.2,10], $tag="remove") {
+                attach(UP,UP, align=LEFT, inside=true) right(3.5) cylinder(r=0.9, h=10, $tag="remove");                      
+                attach(UP,UP, align=RIGHT, inside=true) left(3.5) cylinder(r=0.9, h=10, $tag="remove");
+            };
+        };
     };
     attach(BOT, UP) cylinder(r=ir+thickness, h=10, orient=FWD, $tag="bau") {
         cyl(r=ir, h=10, $tag="remove");
-        position(UP) tube(ir=ir-4, or=ir+thickness, h=1, anchor=BOT, $tag="keep");
+        attach(UP,UP, inside=true) tube(ir=ir-4, or=ir+thickness, h=1, anchor=BOT, $tag="keep");
     };
-    attach (FRONT,FRONT, inside=true) cube([(ir+thickness)*2,35,20]);
+    attach (BACK,FRONT, inside=true) cube([(ir+thickness)*2,35,20]);
 };
 
 cylinder(r=18, h=20, orient=BACK, anchor=CENTRE, $tag="remove");    
@@ -70,11 +90,12 @@ translate([-5,0,13]) cylinder(r=1.6, h=2, orient=LEFT,$tag="remove" )
     attach(UP,UP) cylinder(r=2.6, h=10);
 translate([5,0,13]) cylinder(r=1.6, h=2, orient=RIGHT,$tag="remove" )
     attach(UP,UP) cylinder(r=2.6, h=10);
-}
+}}
 
-}
+
 giunto();
-//up(29) zrot(90) right(42) xrot(180) motor_mount();
-//xrot(90) back(24) up(10) zrot(90) bearing();
-//xrot(-90) fwd(24) up(10) zrot(90) bearing();
-//xrot(-90) down(7) fwd(24) zrot(90) gear();
+//up(5) zrot(90) right(42) xrot(180) motor_mount();
+//xrot(90) up(10) zrot(90) bearing();
+//xrot(-90) up(11) zrot(90) bearing();
+//xrot(90) down(8) zrot(90) gear();
+//servo_gear();
