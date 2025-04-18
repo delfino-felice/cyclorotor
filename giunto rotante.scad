@@ -1,6 +1,11 @@
 include <libraries/BOSL2/std.scad>
 include <libraries/BOSL2/gears.scad>
 
+// TO DO //
+// ruota leggermente più lontana dal motore
+// controllare fori per cuscinetto accanto al motore
+
+
 $fn=100;
 
 module servo_gear() {
