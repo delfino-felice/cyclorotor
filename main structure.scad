@@ -4,14 +4,17 @@ include <libraries/BOSL2/gears.scad>
 $fn=100;
 
 module servo_gear() {
+circ_pitch=3;
+teeth=20;
 diff ("remove") {
 import("STL/11_Gripper_gear_v4.stl");
 spur_gear(
-    circ_pitch=3, teeth=18, thickness=10, shaft_diam=5,
+    circ_pitch=circ_pitch, teeth=teeth, thickness=10, shaft_diam=5,
     helical=30, herringbone=true, slices=5, anchor=BOT
 );
 
-echo(pitch_radius(3,18,30));
+echo(str("pitch_radius = ", pitch_radius(circ_pitch, teeth,30)));
+echo(str("outer_radius = ", outer_radius(circ_pitch, teeth,30)));
 
 }}
 
@@ -30,13 +33,13 @@ tag("remove") {
     cylinder(r=5.1, h=100, center=true);
 }}
 left(19) cylinder(r=1.4, h=10,anchor=BOT, $tag="remove");
-left(50) cylinder(r=1.4, h=10,anchor=BOT, $tag="remove");
+left(49.5) cylinder(r=1.4, h=10,anchor=BOT, $tag="remove");
 left(70) cylinder(r=1.4, h=10,anchor=BOT, $tag="remove");
 }}
 
 module giunto() {
 thickness=4;
-ir=16.2;
+ir=16.1;
 d=26;
 diff("remove") {
 tube(ir=ir, wall=thickness, h=d, orient=FWD) {
@@ -96,12 +99,16 @@ translate([5,0,12]) cylinder(r=1.6, h=2, orient=RIGHT,$tag="remove" )
 }
 
 module gear() {
+circ_pitch=3;
+teeth=30;
 diff("remove") {
 spur_gear(
-    circ_pitch=3, teeth=32, thickness=10, shaft_diam=8.5,
+    circ_pitch=circ_pitch, teeth=teeth, thickness=10, shaft_diam=8.5,
     helical=30, herringbone=true, slices=5, anchor=BOT
 );
-echo(pitch_radius(3,32,30));
+;
+echo(str("pitch_radius = ", pitch_radius(circ_pitch, teeth,30)));
+echo(str("outer_radius = ", outer_radius(circ_pitch, teeth,30)));
 cylinder(r=8.5, h=16);
 cube([10.4,10.4,100],anchor=BOT, $tag="remove");
 translate([-5,0,13]) cylinder(r=1.6, h=2, orient=LEFT,$tag="remove" )
@@ -111,9 +118,9 @@ translate([5,0,13]) cylinder(r=1.6, h=2, orient=RIGHT,$tag="remove" )
 }}
 
 
-  giunto();
+//  giunto();
 //  up(5) zrot(90) right(45) xrot(180) motor_mount();
 //  xrot(90) up(13) zrot(90) bearing();
 //  xrot(-90) up(14) zrot(90) bearing();
-//  xrot(90) down(8) zrot(90) gear();
-//  servo_gear();
+//  xrot(90) down(8.5) zrot(90) gear();
+  servo_gear();
