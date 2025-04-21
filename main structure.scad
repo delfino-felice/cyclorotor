@@ -14,8 +14,13 @@ diff("remove") {
 
 prismoid(size1=[l,10], size2=[l,W_braccio], h=h) {
     attach(UP,UP, inside=true) cube([l,W_braccio,h_piano], $tag="bau"); 
+
     right(d_motori-(l/2)+4) cylinder(r=1.4, h=100, center=true, $tag="remove");
     right(d_motori-(l/2)-4) cylinder(r=1.4, h=100, center=true, $tag="remove");
+
+    left(10-4) cylinder(r=1.4, h=100, center=true, $tag="remove");
+    left(10+4) cylinder(r=1.4, h=100, center=true, $tag="remove");
+
     attach(RIGHT,FRONT, align=BOT) prismoid(size1=[10,0], size2=[18,8], h=2.5, shift=[0,4]);
 };
 left(l/2) back(W_braccio/2) cylinder(r=ir+2, h=W_braccio, anchor=BOT+FRONT, orient=FRONT) {
