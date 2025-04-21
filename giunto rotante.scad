@@ -2,7 +2,7 @@ include <libraries/BOSL2/std.scad>
 include <libraries/BOSL2/gears.scad>
 
 // TO DO //
-// ruota leggermente più lontana dal motore
+// ruota leggermente più basso dal motore
 // controllare fori per cuscinetto accanto al motore
 
 
@@ -123,9 +123,9 @@ translate([5,0,13]) cylinder(r=1.6, h=2, orient=RIGHT,$tag="remove" )
 }}
 
 
-//  giunto();
+  giunto();
 //  up(5) zrot(90) right(45) xrot(180) motor_mount();
 //  xrot(90) up(13) zrot(90) bearing();
 //  xrot(-90) up(14) zrot(90) bearing();
 //  xrot(90) down(8.5) zrot(90) gear();
-  servo_gear();
+//  servo_gear();
