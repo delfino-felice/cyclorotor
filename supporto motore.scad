@@ -37,5 +37,5 @@ fwd(4) cylinder(r=1.4, h=100, center=true, $tag="remove");
 back(4) cylinder(r=1.4, h=100, center=true, $tag="remove");
 }}
 
-// distanza centro supporto motore dall'origine = 65.6
+// distanza centro supporto motore dal centro del tubo = 65.6
 supporto();
