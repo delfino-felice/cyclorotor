@@ -23,6 +23,7 @@ prismoid(size1=[l,10], size2=[l,W_braccio], h=h) {
 
     right(d_motori-(l/2)) attach(UP,BOT, inside=true) prismoid(size1=[W_braccio,38], size2=[W_braccio,33], h=6, spin=90, $tag="bau")
         attach([RIGHT,LEFT], BOT, inside=true) cuboid([40,23,4], rounding=3, edges=[BACK+RIGHT,BACK+LEFT,FWD+RIGHT,FWD+LEFT],  anchor=BOT, $tag="abu") {
+        attach(BOT,BOT,inside=true) cube([L-5,14,1.5], $tag="remove");
         attach(UP,UP, inside=true) back(6) prismoid(size1=[L,3.1], size2=[L,5.9], h=2, $tag="remove") {
             position([LEFT,RIGHT]) cylinder(r1=1.55, r2=2.95, h=2, center=true) {
                 attach(BOT,BOT) cylinder(r=1.55, h=2, center=true);
