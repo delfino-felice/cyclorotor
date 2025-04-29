@@ -2,13 +2,13 @@ include <libraries/BOSL2/std.scad>
 
 $fn=100;
 
-l=90;
+l=95;
 h=6.5;
 h_piano=2;
 W_braccio=30;
-d_motori=70;
+d_motori=72.5;
 ir=6.1;
-L=29;
+L=24;
 
 
 module main() {
@@ -21,16 +21,16 @@ prismoid(size1=[l,10], size2=[l,W_braccio], h=h) {
 
     attach(RIGHT,FRONT, align=BOT) prismoid(size1=[10,0], size2=[18,8], h=2.5, shift=[0,4]);
 
-    right(d_motori-(l/2)) attach(UP,BOT, inside=true) prismoid(size1=[W_braccio,38], size2=[W_braccio,33], h=6, spin=90, $tag="bau")
-        attach([RIGHT,LEFT], BOT, inside=true) cuboid([40,23,4], rounding=3, edges=[BACK+RIGHT,BACK+LEFT,FWD+RIGHT,FWD+LEFT],  anchor=BOT, $tag="abu") {
+    right(d_motori-(l/2)) attach(UP,BOT, inside=true) prismoid(size1=[W_braccio,L+15], size2=[W_braccio,L+10], h=6, spin=90, $tag="bau")
+        attach([RIGHT,LEFT], BOT, inside=true) cuboid([L+10,21,4], rounding=3, edges=[BACK+RIGHT,BACK+LEFT,FWD+RIGHT,FWD+LEFT],  anchor=BOT, $tag="abu") {
         attach(BOT,BOT,inside=true) cube([L-5,14,1.5], $tag="remove");
-        attach(UP,UP, inside=true) back(6) prismoid(size1=[L,3.1], size2=[L,5.9], h=2, $tag="remove") {
+        attach(UP,UP, inside=true) back(6.12) prismoid(size1=[L,3.1], size2=[L,5.9], h=2, $tag="remove") {
             position([LEFT,RIGHT]) cylinder(r1=1.55, r2=2.95, h=2, center=true) {
                 attach(BOT,BOT) cylinder(r=1.55, h=2, center=true);
                 };
                 attach(BOT,BOT) cuboid([L,3.1,2]);
             }
-        attach(UP,UP, inside=true) fwd(6) prismoid(size1=[L,3.1], size2=[L,5.9], h=2, $tag="remove") {
+        attach(UP,UP, inside=true) fwd(6.12) prismoid(size1=[L,3.1], size2=[L,5.9], h=2, $tag="remove") {
             position([LEFT,RIGHT]) cylinder(r1=1.55, r2=2.95, h=2, center=true) {
                 attach(BOT,BOT) cylinder(r=1.55, h=2, center=true);
                 };
