@@ -67,9 +67,9 @@ down(3.5) cube([11,50,5], anchor=BOT, $tag="remove");
 
 module motor_mount () {
 diff("remove") {
-cuboid([25,25,4], anchor=BOT, spin=45, rounding=5, edges=[FRONT+LEFT,FRONT+RIGHT,BACK+LEFT,BACK+RIGHT]) 
-    attach(UP,BOT) skin([rect([25, 25], rounding=5), rect([16,8], center=true)], z=[0,7], slices=50, method="tangent")
-        attach(UP,BOT, inside=true) cube([12.3,4.3,8], $tag="remove");
+cuboid([25,25,2.5], anchor=BOT, spin=45, rounding=5, edges=[FRONT+LEFT,FRONT+RIGHT,BACK+LEFT,BACK+RIGHT]) 
+    attach(UP,BOT) skin([rect([25, 25], rounding=5), rect([8,16], center=true)], z=[0,5], slices=50, method="tangent")
+        attach(UP,BOT, inside=true) cube([4.3,12.3,5], $tag="remove");
 
 tag("remove") {
     fwd(8) cylinder(r=1.6, h=2, anchor=BOT) attach(UP,BOT) cylinder(r=3, h=100);
