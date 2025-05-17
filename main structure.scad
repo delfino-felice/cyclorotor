@@ -1,5 +1,5 @@
 include <libraries/BOSL2/std.scad>
-
+include <libraries/BOSL2/skin.scad>
 $fn=100;
 
 l=95;
@@ -64,5 +64,23 @@ down(3.5) cube([11,50,5], anchor=BOT, $tag="remove");
 
 }}
 
-right(l/2+21.1) zrot(90) yrot(180) down(8) attacco_giunto();
-main();
+
+module motor_mount () {
+diff("remove") {
+cuboid([25,25,4], anchor=BOT, spin=45, rounding=5, edges=[FRONT+LEFT,FRONT+RIGHT,BACK+LEFT,BACK+RIGHT]) 
+    attach(UP,BOT) skin([rect([25, 25], rounding=5), rect([16,8], center=true)], z=[0,7], slices=50, method="tangent")
+        attach(UP,BOT, inside=true) cube([12.3,4.3,8], $tag="remove");
+
+tag("remove") {
+    fwd(8) cylinder(r=1.6, h=2, anchor=BOT) attach(UP,BOT) cylinder(r=3, h=100);
+    back(8) cylinder(r=1.6, h=2, anchor=BOT) attach(UP,BOT) cylinder(r=3, h=100);
+    left(9.5) cylinder(r=1.6, h=2, anchor=BOT) attach(UP,BOT) cylinder(r=3, h=100);
+    right(9.5) cylinder(r=1.6, h=2, anchor=BOT) attach(UP,BOT) cylinder(r=3, h=100);
+    cylinder(r=5.1, h=2, anchor=BOT);
+}
+}}
+
+
+//right(l/2+21.1) zrot(90) yrot(180) down(8) attacco_giunto();
+//main();
+motor_mount();
