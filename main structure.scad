@@ -65,17 +65,17 @@ lenght = 44;
 a=30;
 cuboid([lenght,width,5], rounding=3, edges=[BACK+LEFT,FRONT+LEFT], anchor=UP, spin=90) 
     attach(BOT,UP) cuboid([lenght+10,width+10,50], $tag="remove"); 
-fwd(lenght/2-2) xrot(a) cylinder(r1=6, r2=4, h=12, anchor=BOT) {
-    attach(UP,UP, inside=true) cylinder(r=2.1, h=10);
-    attach(BOT,UP) cylinder(r=6, h=10, center=true);
+fwd(lenght/2-2) xrot(a) cylinder(r1=7, r2=5, h=12, anchor=BOT) {
+    attach(UP,UP, inside=true) cylinder(r=3.1, h=10);
+    attach(BOT,UP) cylinder(r=7, h=10, center=true);
 };
-back(lenght/2-2) right(width/2-2) yrot(a) xrot(-a) cylinder(r1=6, r2=4, h=12, anchor=BOT) {
-    attach(UP,UP, inside=true) cylinder(r=2.1, h=10);
-    attach(BOT,UP) cylinder(r=6, h=10, center=true);
+back(lenght/2-2) right(width/2-2) yrot(a) xrot(-a) cylinder(r1=7, r2=5, h=12, anchor=BOT) {
+    attach(UP,UP, inside=true) cylinder(r=3.1, h=10);
+    attach(BOT,UP) cylinder(r=7, h=10, center=true);
 };
-back(lenght/2-2) left(width/2-2) yrot(-a) xrot(-a) cylinder(r1=6, r2=4, h=12, anchor=BOT) {
-    attach(UP,UP, inside=true) cylinder(r=2.1, h=10);
-    attach(BOT,UP) cylinder(r=6, h=10, center=true);
+back(lenght/2-2) left(width/2-2) yrot(-a) xrot(-a) cylinder(r1=7, r2=5, h=12, anchor=BOT) {
+    attach(UP,UP, inside=true) cylinder(r=3.1, h=10);
+    attach(BOT,UP) cylinder(r=7, h=10, center=true);
 };
     d_fori=0;
     fwd(d_fori) cylinder(r=1.4, h=100, center=true, $tag="remove");
