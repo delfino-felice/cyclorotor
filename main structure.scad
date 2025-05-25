@@ -26,10 +26,9 @@ prismoid(size1=[l,10], size2=[l,W_braccio], h=h) {
     right(d_motori-(l/2)) attach(UP,BOT, inside=true) cuboid([L,14,h], $tag="bau") {
         attach([FRONT,BACK], BOT) prismoid(size1=[L,h], size2=[L+15,h], h=8, $tag="remove");
         cube([L,14,3.8], $tag="remove", anchor=CENTRE) 
+            attach([UP,BOT],UP) prismoid(size1=[L+5,14], size2=[L+18,14], h=4.7, $tag="bau");
         cube([L,3.2,h], $tag="remove", anchor=CENTRE)
             attach([UP,BOT],UP) cube([L,5.5,10], $tag="remove", anchor=CENTRE);
-        attach(UP,UP) prismoid(size1=[L+5,10], size2=[L+15,10], h=3, $tag="bau");
-        attach(BOT,UP) prismoid(size1=[L+5,10], size2=[L+15,10], h=3, $tag="bau");
     };
 
 
@@ -121,7 +120,7 @@ right(2.5) cylinder(r=1.4, h=10,$tag="remove");
 
 //supporto();
 // right(l/2+21.1) zrot(90) yrot(180) down(8.6) attacco_giunto();
-// main();
+ main();
 //motor_mount();
 //asse_motori();
-zrot(90) battery_mount();
+//zrot(90) battery_mount();
