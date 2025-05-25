@@ -123,6 +123,6 @@ back(9.75) cylinder(r=1.4, h=10,$tag="remove");
 //supporto();
 // right(l/2+21.1) zrot(90) yrot(180) down(8.6) attacco_giunto();
 // main();
-//motor_mount();
-asse_motori();
+motor_mount();
+//asse_motori();
 //zrot(90) battery_mount();
