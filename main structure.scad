@@ -87,7 +87,8 @@ module motor_mount () {
 diff("remove") {
 cuboid([25,25,3], anchor=BOT, spin=45, rounding=5, edges=[FRONT+LEFT,FRONT+RIGHT,BACK+LEFT,BACK+RIGHT]) 
     attach(UP,BOT) skin([rect([25, 25], rounding=5), rect([7.5,16], center=true)], z=[0,5], slices=50, method="tangent")
-        attach(UP,BOT, inside=true) cube([3.7,12.1,5.5], $tag="remove");
+        attach(UP,BOT, inside=true) cube([3.7,12.1,5.5], $tag="remove")
+            attach(LEFT,UP) cylinder(r=1.6, h=2, $tag="remove") attach(BOT,UP) cylinder(r=2.6, h=10, $tag="remove");
 
 tag("remove") {
     fwd(8) cylinder(r=1.6, h=2, anchor=BOT) attach(UP,BOT) cylinder(r=3, h=100);
@@ -115,12 +116,13 @@ diff("remove") {
 cube([12,25,3.5], anchor=BOT);
 left(2.5) cylinder(r=1.4, h=10,$tag="remove");
 right(2.5) cylinder(r=1.4, h=10,$tag="remove");
-
+fwd(9.75) cylinder(r=1.4, h=10,$tag="remove");
+back(9.75) cylinder(r=1.4, h=10,$tag="remove");
 }}
 
 //supporto();
 // right(l/2+21.1) zrot(90) yrot(180) down(8.6) attacco_giunto();
- main();
+// main();
 //motor_mount();
-//asse_motori();
+asse_motori();
 //zrot(90) battery_mount();
