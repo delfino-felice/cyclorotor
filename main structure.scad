@@ -105,9 +105,24 @@ cube([22,51,4], anchor=BOT)
         attach(BACK,BACK, align=UP, inset=7, inside=true) cube([27.2,8,34.2], $tag="remove");
 
 d_fori=0;
-left(d_fori) cylinder(r=1.6, h=3, center=true, $tag="remove") attach(UP,UP) cylinder(r=2.6, h=3, center=true, $tag="remove");
-left(d_fori + 7) cylinder(r=1.6, h=3, center=true, $tag="remove") attach(UP,UP) cylinder(r=2.6, h=3, center=true, $tag="remove");
-left(d_fori - 7) cylinder(r=1.6, h=3, center=true, $tag="remove") attach(UP,UP) cylinder(r=2.6, h=3, center=true, $tag="remove");
+left(d_fori) cylinder(r=1.6, h=3, anchor=BOT, $tag="remove") attach(UP,UP) cylinder(r=2.6, h=3, center=true, $tag="remove");
+left(d_fori + 7) cylinder(r=1.6, h=3, anchor=BOT, $tag="remove") attach(UP,UP) cylinder(r=2.6, h=3, center=true, $tag="remove");
+left(d_fori - 7) cylinder(r=1.6, h=3, anchor=BOT, $tag="remove") attach(UP,UP) cylinder(r=2.6, h=3, center=true, $tag="remove");
+}}
+
+module PDB_mount () {
+diff("remove") {
+cuboid([38,38,5], anchor=BOT, rounding=2, edges=[FRONT+LEFT,FRONT+RIGHT,BACK+LEFT,BACK+RIGHT]);
+d=30.5/2;
+translate([d,d,0]) cylinder(r=1.4, h=2, anchor=BOT, $tag="remove")   attach(UP,UP) cylinder(r=2.6, h=10, center=true);
+translate([-d,d,0]) cylinder(r=1.4, h=2, anchor=BOT, $tag="remove")  attach(UP,UP) cylinder(r=2.6, h=10, center=true);
+translate([d,-d,0]) cylinder(r=1.4, h=2, anchor=BOT, $tag="remove")  attach(UP,UP) cylinder(r=2.6, h=10, center=true);
+translate([-d,-d,0]) cylinder(r=1.4, h=2, anchor=BOT, $tag="remove") attach(UP,UP) cylinder(r=2.6, h=10, center=true);
+
+d_fori=0;
+left(d_fori) cylinder(r=1.6, h=3, anchor=BOT, $tag="remove") attach(UP,UP) cylinder(r=2.6, h=3, center=true, $tag="remove");
+left(d_fori + 7) cylinder(r=1.6, h=3, anchor=BOT, $tag="remove") attach(UP,UP) cylinder(r=2.6, h=3, center=true, $tag="remove");
+left(d_fori - 7) cylinder(r=1.6, h=3, anchor=BOT, $tag="remove") attach(UP,UP) cylinder(r=2.6, h=3, center=true, $tag="remove");
 }}
 
 module asse_motori () {
@@ -123,6 +138,7 @@ back(9.75) cylinder(r=1.4, h=10,$tag="remove");
 //supporto();
 // right(l/2+21.1) zrot(90) yrot(180) down(8.6) attacco_giunto();
 // main();
-motor_mount();
+//motor_mount();
 //asse_motori();
 //zrot(90) battery_mount();
+PDB_mount();
