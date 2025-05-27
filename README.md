@@ -1,1 +1,2 @@
-"info about this project" 
+# cyclocopter
+work in progress
