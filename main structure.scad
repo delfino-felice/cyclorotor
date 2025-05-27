@@ -98,6 +98,7 @@ tag("remove") {
     cylinder(r=5.1, h=2, anchor=BOT);
 }
 }}
+
 module battery_mount () {
 diff("remove") {
 cube([22,51,4], anchor=BOT) 
@@ -111,18 +112,37 @@ left(d_fori - 7) cylinder(r=1.6, h=3, anchor=BOT, $tag="remove") attach(UP,UP) c
 }}
 
 module PDB_mount () {
-diff("remove") {
-cuboid([38,38,5], anchor=BOT, rounding=2, edges=[FRONT+LEFT,FRONT+RIGHT,BACK+LEFT,BACK+RIGHT]);
-d=30.5/2;
-translate([d,d,0]) cylinder(r=1.4, h=2, anchor=BOT, $tag="remove")   attach(UP,UP) cylinder(r=2.6, h=10, center=true);
-translate([-d,d,0]) cylinder(r=1.4, h=2, anchor=BOT, $tag="remove")  attach(UP,UP) cylinder(r=2.6, h=10, center=true);
-translate([d,-d,0]) cylinder(r=1.4, h=2, anchor=BOT, $tag="remove")  attach(UP,UP) cylinder(r=2.6, h=10, center=true);
-translate([-d,-d,0]) cylinder(r=1.4, h=2, anchor=BOT, $tag="remove") attach(UP,UP) cylinder(r=2.6, h=10, center=true);
-
 d_fori=0;
-left(d_fori) cylinder(r=1.6, h=3, anchor=BOT, $tag="remove") attach(UP,UP) cylinder(r=2.6, h=3, center=true, $tag="remove");
-left(d_fori + 7) cylinder(r=1.6, h=3, anchor=BOT, $tag="remove") attach(UP,UP) cylinder(r=2.6, h=3, center=true, $tag="remove");
-left(d_fori - 7) cylinder(r=1.6, h=3, anchor=BOT, $tag="remove") attach(UP,UP) cylinder(r=2.6, h=3, center=true, $tag="remove");
+d=30.5/2;
+
+diff("remove") {
+cuboid([38,38,3], anchor=BOT, rounding=2, edges=[FRONT+LEFT,FRONT+RIGHT,BACK+LEFT,BACK+RIGHT]) {
+    attach(BOT,UP) left(d_fori) cuboid([25,25,9], rounding=2, edges=[FRONT+LEFT,FRONT+RIGHT,BACK+LEFT,BACK+RIGHT]);
+    
+    attach(UP,UP,inside=true) left(d_fori) cylinder(r=2.6, h=3, anchor=BOT, $tag="remove") attach(BOT,UP) cylinder(r=1.6, h=30, center=true, $tag="remove");
+    attach(UP,UP,inside=true) left(d_fori + 7) cylinder(r=2.6, h=3, anchor=BOT, $tag="remove") attach(BOT,UP) cylinder(r=1.6, h=30, center=true, $tag="remove");
+    attach(UP,UP,inside=true) left(d_fori - 7) cylinder(r=2.6, h=3, anchor=BOT, $tag="remove") attach(BOT,UP) cylinder(r=1.6, h=30, center=true, $tag="remove");
+};
+    
+translate([d,d,0]) cylinder(r=1.4, h=20, anchor=BOT, $tag="remove");   
+translate([-d,d,0]) cylinder(r=1.4, h=20, anchor=BOT, $tag="remove");  
+translate([d,-d,0]) cylinder(r=1.4, h=20, anchor=BOT, $tag="remove");  
+translate([-d,-d,0]) cylinder(r=1.4, h=20, anchor=BOT, $tag="remove"); 
+
+}}
+module arduino_mount () {
+d=30.5/2;
+
+diff("remove") {
+cuboid([113,82,3], anchor=BOT, rounding=2, edges=[FRONT+LEFT,FRONT+RIGHT,BACK+LEFT,BACK+RIGHT]);
+
+translate([0, 0, 0]) {
+translate([d,d,0]) cylinder(r=3.5, h=7, anchor=UP, $tag="bau") attach(BOT,UP, inside=true) cylinder(r=1.6, h=7, $tag="remove") attach(BOT,UP) cylinder(r=2.6, h=7, $tag="remove");   
+translate([-d,d,0]) cylinder(r=3.5, h=7, anchor=UP, $tag="bau") attach(BOT,UP, inside=true) cylinder(r=1.6, h=7, $tag="remove") attach(BOT,UP) cylinder(r=2.6, h=7, $tag="remove");   
+translate([d,-d,0]) cylinder(r=3.5, h=7, anchor=UP, $tag="bau") attach(BOT,UP, inside=true) cylinder(r=1.6, h=7, $tag="remove") attach(BOT,UP) cylinder(r=2.6, h=7, $tag="remove");   
+translate([-d,-d,0]) cylinder(r=3.5, h=7, anchor=UP, $tag="bau") attach(BOT,UP, inside=true) cylinder(r=1.6, h=7, $tag="remove") attach(BOT,UP) cylinder(r=2.6, h=7, $tag="remove");   
+}
+
 }}
 
 module asse_motori () {
@@ -141,4 +161,5 @@ back(9.75) cylinder(r=1.4, h=10,$tag="remove");
 //motor_mount();
 //asse_motori();
 //zrot(90) battery_mount();
-PDB_mount();
+//PDB_mount();
+arduino_mount();
