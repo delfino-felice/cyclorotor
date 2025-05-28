@@ -2,6 +2,8 @@ include <libraries/BOSL2/std.scad>
 include <libraries/BOSL2/skin.scad>
 $fn=100;
 
+// necessario aumentare spessore blocco viti-tubo, viti troppo lunghe
+
 l=95;
 h=7.1;
 h_piano=2;
@@ -112,7 +114,7 @@ left(d_fori - 7) cylinder(r=1.6, h=3, anchor=BOT, $tag="remove") attach(UP,UP) c
 }}
 
 module PDB_mount () {
-d_fori=0;
+d_fori=6.5;
 d=30.5/2;
 
 diff("remove") {
@@ -157,9 +159,9 @@ back(9.75) cylinder(r=1.4, h=10,$tag="remove");
 
 //supporto();
 // right(l/2+21.1) zrot(90) yrot(180) down(8.6) attacco_giunto();
-// main();
+ main();
 //motor_mount();
 //asse_motori();
 //zrot(90) battery_mount();
 //PDB_mount();
-arduino_mount();
+//arduino_mount();
