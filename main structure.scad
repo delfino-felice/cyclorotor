@@ -138,7 +138,7 @@ d=30.5/2;
 diff("remove") {
 cuboid([113,82,3], anchor=BOT, rounding=2, edges=[FRONT+LEFT,FRONT+RIGHT,BACK+LEFT,BACK+RIGHT]);
 
-translate([0, 0, 0]) {
+translate([10, 0, 0]) {
 translate([d,d,0]) cylinder(r=3.5, h=7, anchor=UP, $tag="bau") attach(BOT,UP, inside=true) cylinder(r=1.6, h=7, $tag="remove") attach(BOT,UP) cylinder(r=2.6, h=7, $tag="remove");   
 translate([-d,d,0]) cylinder(r=3.5, h=7, anchor=UP, $tag="bau") attach(BOT,UP, inside=true) cylinder(r=1.6, h=7, $tag="remove") attach(BOT,UP) cylinder(r=2.6, h=7, $tag="remove");   
 translate([d,-d,0]) cylinder(r=3.5, h=7, anchor=UP, $tag="bau") attach(BOT,UP, inside=true) cylinder(r=1.6, h=7, $tag="remove") attach(BOT,UP) cylinder(r=2.6, h=7, $tag="remove");   
@@ -159,9 +159,9 @@ back(9.75) cylinder(r=1.4, h=10,$tag="remove");
 
 //supporto();
 // right(l/2+21.1) zrot(90) yrot(180) down(8.6) attacco_giunto();
- main();
+// main();
 //motor_mount();
 //asse_motori();
 //zrot(90) battery_mount();
 //PDB_mount();
-//arduino_mount();
+arduino_mount();
