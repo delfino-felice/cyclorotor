@@ -74,7 +74,7 @@ additional_tooth_width = 0.2; //mm
 // If you need more tooth depth than this provides, adjust the
 // following constant. However, this will cause the shape of the
 // tooth to change.
-additional_tooth_depth = 0; //mm
+additional_tooth_depth = 0.1; //mm
 
 
 module gear(number_of_teeth, profile, motor_shaft_diameter, belt_retainer, retainer_height_p, belt_idler, idler_height_p,base_height,base_diameter,flange_option,flange_diam,flange_thickness) {
