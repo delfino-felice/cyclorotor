@@ -167,6 +167,15 @@ diff("remove") {
     };
 }}
 
+module spessore() { // fix temporaneo
+ difference("remove") {
+    cube([30,7,3], center=true);
+    left(10) cylinder(r=2.1, h=10, center=true, $tag="remove");
+    right(10) cylinder(r=2.1, h=10, center=true, $tag="remove");
+        
+ }
+} 
+
 //supporto();
 // right(l/2+21.1) zrot(90) yrot(180) down(8.6) attacco_giunto();
 // main();
@@ -175,4 +184,5 @@ diff("remove") {
 //zrot(90) battery_mount();
 //PDB_mount();
 //arduino_mount();
-supporto_giroscopio();
+//supporto_giroscopio();
+spessore();
