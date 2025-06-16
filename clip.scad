@@ -2,14 +2,14 @@ include <libraries/BOSL2/std.scad>
 
 $fn=100;
 
-H=6;
+H=8;
 IR=6.1;
 x=7; // spessore supporti viti
 difference() {
     union() {
         cylinder(h=H, r=IR+1.6, center=true); // cilindro centrale
-        translate([IR+3.6,0,0]) cube([6,x,H], center=true); // supporto per viti
-        yrot(90) prismoid(size1=[H,IR*2+3.2], size2=[H,x], h=IR+6.7);
+        translate([IR+3.6,0,0]) cube([7,x,H], center=true); // supporto per viti
+        yrot(90) prismoid(size1=[H,IR*2+3.2], size2=[H,x], h=IR+7.7);
     }
     union() {
         translate ([IR+3.6,0,0]) rotate ([90,0,0]) cylinder(r=1.65,h=6, center=true) {
