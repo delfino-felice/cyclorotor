@@ -40,6 +40,7 @@ difference() {
         cylinder(r=IR, h=H, center=true);
     }
 }}
+
 module distanziatore () {
 tube(ir=1.8, wall=2, h=6);
 }
@@ -146,9 +147,9 @@ diff("remove") {
         cylinder(r=R2-0.7, h=H+1, center=true); // foro maggiore
         translate ([-R2-3.6,0,0]) rotate ([90,0,0]) cylinder(r=1.65,h=6, center=true) {
             attach(UP,UP) cylinder(r=2.7, h=10, center=true);
-            zrot(90) attach(BOT,UP) cylinder(r=3.3, h=10, $fn=6, center=true);
+            attach(BOT,UP) cylinder(r=3.3, h=10, $fn=6, center=true);
         }; // foro vite 
-        translate([-(R2+3.6),0,0]) cube([10,3,100], center=true); // gioco viti        
+        translate([-(R2+3.6),0,0]) cube([10,2,100], center=true); // gioco viti        
     }
 
 }}
@@ -178,5 +179,5 @@ difference() {
 //frame();
 //ruota_grande();
 //ruota_piccola();
-//supporto_bracci();
+supporto_bracci();
 //wing();
