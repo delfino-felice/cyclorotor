@@ -150,11 +150,11 @@ translate([-d,-d,0]) cylinder(r=3.5, h=7, anchor=UP, $tag="bau") attach(BOT,UP, 
 module asse_motori () {
 diff("remove") {
 
-cube([12,26,3.5], anchor=BOT);
+cube([12,25.5,3.5], anchor=BOT);
 left(2.5) cylinder(r=1.4, h=10,$tag="remove");
 right(2.5) cylinder(r=1.4, h=10,$tag="remove");
-fwd(10.25) cylinder(r=1.4, h=10,$tag="remove");
-back(10.25) cylinder(r=1.4, h=10,$tag="remove");
+fwd(10) cylinder(r=1.4, h=10,$tag="remove");
+back(10) cylinder(r=1.4, h=10,$tag="remove");
 }}
 
 module supporto_giroscopio () {
@@ -180,9 +180,9 @@ module spessore() { // fix temporaneo
 // right(l/2+21.1) zrot(90) yrot(180) down(8.6) attacco_giunto();
 // main();
 //motor_mount();
-//asse_motori();
+asse_motori();
 //zrot(90) battery_mount();
 //PDB_mount();
 //arduino_mount();
 //supporto_giroscopio();
-spessore();
+//spessore();
