@@ -13,12 +13,13 @@ module braccio() {
 H=14; //altezza cilindro 
 diff("remove") {
     cuboid([78,8,1], anchor=BOT, rounding=4,edges=[BACK+RIGHT,BACK+LEFT,FWD+RIGHT,FWD+LEFT])
-        attach(UP,UP, align=RIGHT) cube([65,2,1]);
+        attach(UP,UP, align=RIGHT, inset=1) cube([65,2.5,1]);
 
-    translate([35,0,1]) cylinder(r1=4, r2=2.8, h=H-1, anchor=BOT); 
+    translate([35,0,]) cylinder(r=2.8, h=H, anchor=BOT); 
  
     translate([35,0,0]) cylinder(r=1.62, h=100, $tag="remove", center=true); // foro ala
     translate([-35,0,0]) cylinder(r=1.49, h=100, $tag="remove", center=true); // foro mozzo centrale    
+    right(35) up(1) cylinder(r1=4, r2=2.8, h=7, anchor=BOT); 
 }}
 
 module clip () {
