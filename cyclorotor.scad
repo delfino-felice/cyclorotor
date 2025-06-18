@@ -3,7 +3,7 @@ include <libraries\parametricPulley.scad>
 use <libraries/NACA/ShortCuts.scad>
 use <libraries/NACA/Naca4.scad>
 
-$fn=500;
+$fn=50;
 
 n=120; // numero denti ruota grande
 or = ((n*2)/(3.14159265*2)-0.254);
@@ -12,12 +12,13 @@ or = ((n*2)/(3.14159265*2)-0.254);
 module braccio() {
 H=14; //altezza cilindro 
 diff("remove") {
-    cuboid([77,8,1], anchor=BOT, rounding=1.5,edges=[BACK+RIGHT,BACK+LEFT,FWD+RIGHT,FWD+LEFT]);
+    cuboid([78,8,1], anchor=BOT, rounding=4,edges=[BACK+RIGHT,BACK+LEFT,FWD+RIGHT,FWD+LEFT]);
 
     translate([35,0,0]) cylinder(r=2.8, h=H, anchor=BOT); 
  
     translate([35,0,0]) cylinder(r=1.62, h=100, $tag="remove", center=true); // foro ala
     translate([-35,0,0]) cylinder(r=1.49, h=100, $tag="remove", center=true); // foro mozzo centrale    
+    right(39) up(1) prismoid(size1=[15,8], rounding1=[4,0,0,4], size2=[5.6,5.6], rounding2=2.8, h=4, shift=[3.5,0], anchor=BOT+RIGHT);
 }}
 
 module clip () {
@@ -173,11 +174,11 @@ difference() {
 }}
 
 // module call
-//braccio();
+braccio();
 //clip();
 //distanziatore();
 //frame();
 //ruota_grande();
 //ruota_piccola();
-supporto_bracci();
+//supporto_bracci();
 //wing();
