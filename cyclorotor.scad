@@ -48,54 +48,52 @@ tube(ir=1.8, wall=2, h=6);
 }
 
 module frame() {
-l1=7;
-l2=4;
+l1=10;
+l2=5;
 w=20;
-h=6;
-
-    module prism(l1,l2, w, h){
-        polyhedron(//pt 0           1            2            3           4             5
-            points=[[-l1/2,0,0], [l1/2,0,0], [l1/2,w,0], [-l1/2,w,0], [-l2/2,0,h], [l2/2,0,h]],
-            faces=[[0,1,2,3],[5,4,3,2],[0,4,5,1],[0,3,4],[5,2,1]]
-        );
-    }
-
-    module oggetto() {
-        rotate ([0,180,0]) difference() {
-            union() {
-                // bracci della croce
-                cuboid([150,10,3], rounding=5,edges=[BACK+RIGHT,BACK+LEFT,FWD+RIGHT,FWD+LEFT]);
-                rotate([0, 0, 90]) {
-                    cuboid([150,10,3], rounding=5,edges=[BACK+RIGHT,BACK+LEFT,FWD+RIGHT,FWD+LEFT]);
-                }
-                // supporto cuscinetto
-                translate([0,0,-3.25])  cylinder(r=16.2, h=9.5, center=true);
-                // interfacce supporto-bracci
-                translate([15,0,-1.5]) rotate([0,180,-90]) prism(l1,l2,w,h);
-                translate([0,15,-1.5]) rotate([0,180,0]) prism(l1,l2,w,h);
-                translate([-15,0,-1.5]) rotate([0,180,90]) prism(l1,l2,w,h);
-                translate([0,-15,-1.5]) rotate([0,180,180]) prism(l1,l2,w,h);
-                // attacco tubo
-                translate([0,0,-10.25]) tube(h=5, ir=12, wall=1);
-            }
-            union() {
-                // fori viti ali
-                translate([70,0,0]) cylinder(r=2.2, h=10, center=true); 
-                translate([-70,0,0]) cylinder(r=2.2, h=10, center=true); 
-                translate([0,70,0]) cylinder(r=2.2, h=10, center=true); 
-                translate([0,-70,0]) cylinder(r=2.2, h=10, center=true); 
-                // supporto cuscinetto
-                translate([0,0,-2.5])  cylinder(r=14.1, h=8, center=true);
-                cylinder(r=9, h=100, center=true);
-                // fori viti ingranaggio
-                translate([or-8,0,0]) cylinder(r=1.4, h=10, center=true);
-                translate([-(or-8),0,0]) cylinder(r=1.4, h=10, center=true);
-                translate([0,or-8,0]) cylinder(r=1.4, h=10, center=true);
-                translate([0,-(or-8),0]) cylinder(r=1.4, h=10, center=true);
-            }    
+h=9;
+diff("remove") {
+    union() {
+        // bracci della croce
+        cuboid([150,10,3], rounding=5,edges=[BACK+RIGHT,BACK+LEFT,FWD+RIGHT,FWD+LEFT], anchor=BOT);
+        rotate([0, 0, 90]) {
+            cuboid([150,10,3], rounding=5,edges=[BACK+RIGHT,BACK+LEFT,FWD+RIGHT,FWD+LEFT], anchor=BOT);
         }
+        // centro
+        cylinder(r=16.2, h=9.5, anchor=BOT) // supporto cuscinetto
+            attach(UP,BOT) cylinder(r1=16.2, r2=14.5, h=6) // supporto tubo
+                attach(UP,UP, inside=true) cylinder(r=13.2,h=6,$tag="remove") { // foro tubo
+                    // fori viti tubo
+                    attach([1,1,0],BOT, overlap=.15) cylinder(r=1.6,h=1.5, $tag="remove") attach(UP,UP) cylinder(r=2.7, h=10);
+                    attach([1,-1,0],BOT, overlap=.15) cylinder(r=1.6,h=1.5, $tag="remove") attach(UP,UP) cylinder(r=2.7, h=10);
+                    attach([-1,1,0],BOT, overlap=.15) cylinder(r=1.6,h=1.5, $tag="remove") attach(UP,UP) cylinder(r=2.7, h=10);
+                    attach([-1,-1,0],BOT, overlap=.15) cylinder(r=1.6,h=1.5, $tag="remove") attach(UP,UP) cylinder(r=2.7, h=10);
+                    // conifere
+                    attach(BOT,BOT) cylinder(r1=11, r2=14, h=1.5);
+                }; 
+        // interfacce supporto-bracci
+        translate([15,0,3]) rotate([0,0,90]) prismoid(size1=[l1,w], size2=[l2,0], shift=[0,w/2+0], h=h, anchor=BOT+BACK);
+        translate([0,15,3]) rotate([0,0,180]) prismoid(size1=[l1,w], size2=[l2,0], shift=[0,w/2+0], h=h, anchor=BOT+BACK);
+        translate([-15,0,3]) rotate([0,0,270]) prismoid(size1=[l1,w], size2=[l2,0], shift=[0,w/2+0], h=h, anchor=BOT+BACK);
+        translate([0,-15,3]) rotate([0,0,0]) prismoid(size1=[l1,w], size2=[l2,0], shift=[0,w/2+0], h=h, anchor=BOT+BACK);
+
     }
-oggetto();
+    tag("remove") {
+        // fori viti ali
+        translate([70,0,0]) cylinder(r=2.2, h=10, center=true); 
+        translate([-70,0,0]) cylinder(r=2.2, h=10, center=true); 
+        translate([0,70,0]) cylinder(r=2.2, h=10, center=true); 
+        translate([0,-70,0]) cylinder(r=2.2, h=10, center=true); 
+        // supporto cuscinetto
+        cylinder(r=14.15, h=8, anchor=BOT);
+        cylinder(r=11, h=100, center=true);
+        // fori viti ingranaggio
+        translate([or-8,0,0]) cylinder(r=1.4, h=100, center=true);
+        translate([-(or-8),0,0]) cylinder(r=1.4, h=100, center=true);
+        translate([0,or-8,0]) cylinder(r=1.4, h=100, center=true);
+        translate([0,-(or-8),0]) cylinder(r=1.4, h=100, center=true);
+    }    
+}
 echo(str("or = ", or));
 }
 
@@ -157,12 +155,7 @@ diff("remove") {
 }}
 
 module wing() {
-rotate([90, 0, 0]) {
-    translate([0, 0, 15]) {
-    //  import ("Part 13 Wing.stl");  
-    } 
-    
-}
+
 difference() {
     airfoil(naca = 0022, L = 50, N=1000, h = 150, open = false); 
     union() {
@@ -175,10 +168,10 @@ difference() {
 }}
 
 // module call
-braccio();
+//braccio();
 //clip();
 //distanziatore();
-//frame();
+frame();
 //ruota_grande();
 //ruota_piccola();
 //supporto_bracci();
