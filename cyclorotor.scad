@@ -97,6 +97,17 @@ diff("remove") {
 echo(str("or = ", or));
 }
 
+module tubo() {
+h=137;  
+diff("remove") {
+tube(od=26, wall=0.8, h=h);
+up(h/2-3) cylinder(r=1.5, h=100, orient=FWD, center=true, $tag="remove");
+up(h/2-3) cylinder(r=1.5, h=100, orient=LEFT, center=true, $tag="remove");
+
+down(h/2-3) cylinder(r=1.5, h=100, orient=FWD, center=true, $tag="remove");
+down(h/2-3) cylinder(r=1.5, h=100, orient=LEFT, center=true, $tag="remove");
+
+}}
 
 module ruota_grande() {    
 h=7;
@@ -171,8 +182,9 @@ difference() {
 //braccio();
 //clip();
 //distanziatore();
-frame();
+//frame();
 //ruota_grande();
 //ruota_piccola();
 //supporto_bracci();
 //wing();
+tubo();
