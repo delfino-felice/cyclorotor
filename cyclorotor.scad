@@ -51,7 +51,7 @@ module frame() {
 l1=10;
 l2=5;
 w=20;
-h=9;
+h=10;
 diff("remove") {
     union() {
         // bracci della croce
@@ -60,7 +60,7 @@ diff("remove") {
             cuboid([150,10,3], rounding=5,edges=[BACK+RIGHT,BACK+LEFT,FWD+RIGHT,FWD+LEFT], anchor=BOT);
         }
         // centro
-        cylinder(r=16.2, h=9.5, anchor=BOT) // supporto cuscinetto
+        cylinder(r=16.2, h=10.5, anchor=BOT) // supporto cuscinetto
             attach(UP,BOT) cylinder(r1=16.2, r2=14.5, h=6) // supporto tubo
                 attach(UP,UP, inside=true) cylinder(r=13.2,h=6,$tag="remove") { // foro tubo
                     // fori viti tubo
@@ -69,7 +69,7 @@ diff("remove") {
                     attach([-1,1,0],BOT, overlap=.15) cylinder(r=1.6,h=1.5, $tag="remove") attach(UP,UP) cylinder(r=2.7, h=10);
                     attach([-1,-1,0],BOT, overlap=.15) cylinder(r=1.6,h=1.5, $tag="remove") attach(UP,UP) cylinder(r=2.7, h=10);
                     // conifere
-                    attach(BOT,BOT) cylinder(r1=11, r2=14, h=1.5);
+                    attach(BOT,BOT) cylinder(r1=11, r2=14.15, h=2.5);
                 }; 
         // interfacce supporto-bracci
         translate([15,0,3]) rotate([0,0,90]) prismoid(size1=[l1,w], size2=[l2,0], shift=[0,w/2+0], h=h, anchor=BOT+BACK);
@@ -98,7 +98,7 @@ echo(str("or = ", or));
 }
 
 module tubo() {
-h=137;  
+h=136;  
 diff("remove") {
 tube(od=26, wall=0.8, h=h);
 up(h/2-3) cylinder(r=1.5, h=100, orient=FWD, center=true, $tag="remove");
