@@ -129,12 +129,20 @@ difference() {
 }}
 
 module ruota_piccola() {
-base_hole_diameter = 7.2; 
-shaft_diameter = 5.2;
-base_height = 10;
+s=8; // raggio cilindrico negativo esterno
 diff("remove"){
-gear(number_of_teeth=33, profile=12, motor_shaft_diameter=shaft_diameter, belt_retainer=1, retainer_height_p=1.5, belt_idler=1, idler_height_p=1.5,base_height=base_height,base_diameter=22.5,flange_option=1,flange_diam=12,flange_thickness=5.5);
-cylinder(r1=base_hole_diameter/2, r2=shaft_diameter/2, h=base_height+2, $fn=200, $tag="remove");
+cylinder(r=4, h=16, anchor=BOT);
+cylinder(r=s, h=2, anchor=UP){
+    attach(BOT,UP, inside=true) cylinder(r=4.6, h=1.5)
+        attach(BOT,BOT) cylinder(r=1.6, h=12);
+
+    attach(BOT,UP) fwd(8.5) cylinder(r=3.4, h=3);
+    attach(BOT,UP) back(8.5) cylinder(r=3.4, h=3);
+    attach(BOT,UP) left(8.5) cylinder(r=3.4, h=3);
+    attach(BOT,UP) right(8.5) cylinder(r=3.4, h=3);
+
+};
+tube(ir=s, wall=20, h=100, $tag="remove");
 }}
 
 module supporto_bracci() {
@@ -184,7 +192,7 @@ difference() {
 //distanziatore();
 //frame();
 //ruota_grande();
-//ruota_piccola();
+ruota_piccola();
 //supporto_bracci();
 //wing();
-tubo();
+//tubo();
