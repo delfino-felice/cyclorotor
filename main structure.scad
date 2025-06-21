@@ -177,7 +177,7 @@ module spessore() { // fix temporaneo
 
 module piedi() {
 diff("remove") {
-cylinder(r=13, h=2) {
+cylinder(r=16, h=2) {
     attach(UP,BOT) xrot(30) cylinder(r1=7,r2=5,h=12) {
         attach(UP,UP, inside=true) cylinder(r=3.1, h=10);
         attach(BOT,UP) cylinder(r=7, h=10, center=true);
@@ -185,7 +185,7 @@ cylinder(r=13, h=2) {
     attach(BOT,BOT) cylinder(r=20, h=100, $tag="remove");
 }
 
-fwd(30) cylinder(r=13, h=2) {
+fwd(35) cylinder(r=16, h=2) {
     attach(UP,BOT) yrot(30) xrot(30) cylinder(r1=7,r2=5,h=12) {
         attach(UP,UP, inside=true) cylinder(r=3.1, h=10);
         attach(BOT,UP) cylinder(r=7, h=10, center=true);
@@ -193,7 +193,7 @@ fwd(30) cylinder(r=13, h=2) {
     attach(BOT,BOT) cylinder(r=20, h=100, $tag="remove");
 }
 
-back(30) cylinder(r=13, h=2) {
+back(35) cylinder(r=16, h=2) {
     attach(UP,BOT) yrot(-30) xrot(30) cylinder(r1=7,r2=5,h=12) {
         attach(UP,UP, inside=true) cylinder(r=3.1, h=10);
         attach(BOT,UP) cylinder(r=7, h=10, center=true);
