@@ -131,10 +131,10 @@ difference() {
 module ruota_piccola() {
 s=8; // raggio cilindrico negativo esterno
 diff("remove"){
-cylinder(r=4, h=16, anchor=BOT);
-cylinder(r=s, h=2, anchor=UP){
+cylinder(r=4.07, h=16, anchor=BOT);
+cylinder(r=s, h=3, anchor=UP){
     attach(BOT,UP, inside=true) cylinder(r=4.6, h=1.5)
-        attach(BOT,BOT) cylinder(r=1.6, h=12);
+        attach(BOT,BOT) cylinder(r=1.575, h=12);
 
     attach(BOT,UP) fwd(8.5) cylinder(r=3.4, h=3);
     attach(BOT,UP) back(8.5) cylinder(r=3.4, h=3);
