@@ -173,16 +173,42 @@ module spessore() { // fix temporaneo
     left(10) cylinder(r=2.1, h=10, center=true, $tag="remove");
     right(10) cylinder(r=2.1, h=10, center=true, $tag="remove");
         
- }
-} 
+}} 
 
+module piedi() {
+diff("remove") {
+cylinder(r=13, h=2) {
+    attach(UP,BOT) xrot(30) cylinder(r1=7,r2=5,h=12) {
+        attach(UP,UP, inside=true) cylinder(r=3.1, h=10);
+        attach(BOT,UP) cylinder(r=7, h=10, center=true);
+    };
+    attach(BOT,BOT) cylinder(r=20, h=10, $tag="remove");
+}
+
+fwd(30) cylinder(r=13, h=2) {
+    attach(UP,BOT) yrot(30) xrot(30) cylinder(r1=7,r2=5,h=12) {
+        attach(UP,UP, inside=true) cylinder(r=3.1, h=10);
+        attach(BOT,UP) cylinder(r=7, h=10, center=true);
+    };
+    attach(BOT,BOT) cylinder(r=20, h=10, $tag="remove");
+}
+
+back(30) cylinder(r=13, h=2) {
+    attach(UP,BOT) yrot(-30) xrot(30) cylinder(r1=7,r2=5,h=12) {
+        attach(UP,UP, inside=true) cylinder(r=3.1, h=10);
+        attach(BOT,UP) cylinder(r=7, h=10, center=true);
+    };
+    attach(BOT,BOT) cylinder(r=20, h=10, $tag="remove");
+}
+}}
 //supporto();
 // right(l/2+21.1) zrot(90) yrot(180) down(8.6) attacco_giunto();
 // main();
 //motor_mount();
-asse_motori();
+//asse_motori();
 //zrot(90) battery_mount();
 //PDB_mount();
 //arduino_mount();
 //supporto_giroscopio();
 //spessore();
+piedi();
