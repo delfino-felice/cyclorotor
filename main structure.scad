@@ -150,7 +150,7 @@ translate([-d,-d,0]) cylinder(r=3.5, h=7, anchor=UP, $tag="bau") attach(BOT,UP, 
 module asse_motori () {
 diff("remove") {
 
-cube([12,25.5,3.5], anchor=BOT);
+cube([12.1,25.5,3.5], anchor=BOT);
 left(2.5) cylinder(r=1.4, h=10,$tag="remove");
 right(2.5) cylinder(r=1.4, h=10,$tag="remove");
 fwd(10) cylinder(r=1.4, h=10,$tag="remove");
