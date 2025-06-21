@@ -13,7 +13,7 @@ module braccio() {
 H=14; //altezza cilindro 
 diff("remove") {
     cuboid([78,8,1], anchor=BOT, rounding=4,edges=[BACK+RIGHT,BACK+LEFT,FWD+RIGHT,FWD+LEFT])
-        attach(UP,UP, align=RIGHT, inset=1) cube([65,2.5,1]);
+        attach(UP,UP, align=RIGHT, inset=1) cube([45,2.5,1]);
 
     translate([35,0,]) cylinder(r=2.8, h=H, anchor=BOT); 
  
@@ -187,12 +187,12 @@ difference() {
 }}
 
 // module call
-//braccio();
+braccio();
 //clip();
 //distanziatore();
 //frame();
 //ruota_grande();
-ruota_piccola();
+//ruota_piccola();
 //supporto_bracci();
 //wing();
 //tubo();
