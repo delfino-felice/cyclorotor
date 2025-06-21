@@ -211,4 +211,4 @@ back(30) cylinder(r=13, h=2) {
 //arduino_mount();
 //supporto_giroscopio();
 //spessore();
-piedi();
+//piedi();
